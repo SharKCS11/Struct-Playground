@@ -1,0 +1,1 @@
+/usr/bin/c++.exe  -g  -Wl,--enable-auto-import CMakeFiles/BTrees.dir/main.cpp.o CMakeFiles/BTrees.dir/btrees.cpp.o  -o BTrees.exe -Wl,--out-implib,libBTrees.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

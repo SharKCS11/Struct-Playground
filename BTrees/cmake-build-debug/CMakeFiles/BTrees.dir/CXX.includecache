@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/b/Clion/Struct-Playground/BTrees/btrees.cpp
+btrees.h
+/cygdrive/b/Clion/Struct-Playground/BTrees/btrees.h
+iostream
+-
+
+/cygdrive/b/Clion/Struct-Playground/BTrees/btrees.h
+deque
+-
+initializer_list
+-
+
+/cygdrive/b/Clion/Struct-Playground/BTrees/main.cpp
+iostream
+-
+btrees.h
+/cygdrive/b/Clion/Struct-Playground/BTrees/btrees.h
+
