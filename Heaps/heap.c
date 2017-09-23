@@ -2,12 +2,19 @@
 #include <stdio.h>
 #include <stdint.h>
 
-//#define DEBUG_PRINTS
+//#define DEBUG_HEAPIFY
+//#define DEBUG_HEAPSORT
 
-#ifdef DEBUG_PRINTS
-# define DEBUG_PRINT(x) printf x
+#ifdef DEBUG_HEAPIFY
+# define DEBUG_PRINT_HEAPIFY(x) printf x
 #else
-# define DEBUG_PRINT(x) do {} while (0)
+# define DEBUG_PRINT_HEAPIFY(x) do {} while (0)
+#endif
+
+#ifdef DEBUG_HEAPSORT
+# define DEBUG_PRINT_HEAPSORT(x) printf x
+#else
+# define DEBUG_PRINT_HEAPSORT(x) do {} while (0)
 #endif
 
 /** HELPER FUNCTIONS **/
@@ -30,7 +37,7 @@ static void fixDown(int arr[], int size, int idx)
             least_i = lc_i;
         if(rc_i>0 && arr[rc_i]<arr[least_i]) //right child is smaller
             least_i=rc_i;
-        DEBUG_PRINT((" ..least is %d.\n",arr[least_i]));
+        DEBUG_PRINT_HEAPIFY((" ..least is %d.\n",arr[least_i]));
         if(least_i != idx)
         {
             swapInts(&arr[idx],&arr[least_i]);
@@ -99,9 +106,31 @@ void heapify(int arr[], int size)
     if(last_leaf<0)
         return;
     for(;last_leaf>=0;last_leaf--){
-        DEBUG_PRINT(("    Now fixing down %d...",arr[last_leaf]));
+        DEBUG_PRINT_HEAPIFY(("    Now fixing down %d...",arr[last_leaf]));
         fixDown(arr,size,last_leaf);
     }
     return;
+}
+
+void heapsort(int arr[],int size)
+{
+    int sizecpy=size;
+    while(size>1){ //reverse heapsort
+        heapify(arr,size);
+        DEBUG_PRINT_HEAPSORT(("    "));
+        swapInts(&arr[0],&arr[(size--)-1]);
+        DEBUG_PRINT_HEAPSORT(("   next run "));
+        #ifdef DEBUG_HEAPSORT
+            array_print(arr,sizecpy);
+        #endif
+    }
+    //reverse
+    int *beg=arr, *end=arr+sizecpy-1;
+    while(beg < end){
+        int temp = *beg;
+        *beg++ = *end;
+        *end-- = temp;
+    }
+
 }
 

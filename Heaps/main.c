@@ -14,9 +14,9 @@ int main()
     bh_add(2);
     bh_print();
 
-    int testarr[9]={10,4,9,-3,6,15,4,11,5};
+    int testarr[9]={3,2,9,-14,25,6,84,60,0};
     array_print(testarr,9);
-    heapify(testarr,9);
+    heapsort(testarr,9);
     array_print(testarr,9);
     return 0;
 }
