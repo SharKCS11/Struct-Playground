@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506144181 source:/home/sharang/Development/Struct-Playground/Heaps/main.c
+	<stdio.h>
+	<stdlib.h>
+
